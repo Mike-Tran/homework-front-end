@@ -1,6 +1,14 @@
-export function getGifRequest () {
+import fetch from 'cross-fetch';
+
+/**
+ *
+ * @param {string} searchTerm
+ * @param {number} offSet
+ * @returns {Promise<Response>}
+ */
+export function getGifRequest (searchTerm, offSet) {
 	return fetch(
-		`http://api.giphy.com/v1/gifs/search?q=${this.state.searchTerm}&api_key=hekEwhW2LgJ7pUX7D72F72pPk281Ot1H&offset=${this.state.offSet}`, {
+		`http://api.giphy.com/v1/gifs/search?q=${searchTerm}&api_key=hekEwhW2LgJ7pUX7D72F72pPk281Ot1H&offset=${offSet}`, {
 		headers: {
 			'Content-Type': 'application/json'
 		},
@@ -12,3 +20,4 @@ export function getGifRequest () {
 		return res.json();
 	});
 }
+

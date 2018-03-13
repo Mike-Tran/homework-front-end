@@ -5,8 +5,6 @@ import _ from 'underscore';
 class SearchBar extends Component {
 	state = {
 		searchField: '',
-		gifs: [],
-		searchTerm: '',
 	};
 
 	/**
