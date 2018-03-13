@@ -1,6 +1,7 @@
+import _ from 'underscore';
+import GridBodyContainer from "./GridBodyContainer";
 import React, {Component} from 'react';
 import SearchBar from "./SearchBar";
-import GridBodyContainer from "./GridBodyContainer";
 import {getGifRequest} from "../util/api";
 import {LinearProgress} from "material-ui";
 
@@ -12,7 +13,8 @@ class Home extends Component {
 		gifs: [],
 	};
 
-	componentDidMount(){
+	componentDidMount() {
+		window.addEventListener('scroll', _.throttle(this.onScroll, 16), false);
 		getGifRequest(this.state.searchTerm, this.state.offSet)
 			.then((firstGifs) => {
 				this.setState({
@@ -24,6 +26,45 @@ class Home extends Component {
 				console.error("Error: ", err);
 			})
 	}
+
+	componentWillUnmount() {
+		window.removeEventListener('scroll', _.throttle(this.onScroll(), 16), false);
+	}
+
+	/**
+	 *
+	 */
+	onScroll = () => {
+		if ((window.innerHeight + window.scrollY) >= (document.body.offsetHeight - 500) &&
+			this.state.gifs.length &&
+			!this.state.isLoading
+		) {
+			this.onPaginatedSearch();
+		}
+	};
+
+	/**
+	 *
+	 */
+	onPaginatedSearch = () => {
+		this.setState((prevState) => {
+			return {
+				offSet: prevState.offSet + 25,
+				isLoading: true,
+			};
+		});
+		getGifRequest(this.state.searchTerm, this.state.offSet)
+			.then(moreGif => {
+				const combo = [...this.state.gifs, ...moreGif.data];
+				this.setState({
+					gifs: combo,
+					isLoading: false,
+				});
+			})
+			.catch(err => {
+				console.error(err);
+			});
+	};
 
 	/**
 	 *
@@ -46,8 +87,6 @@ class Home extends Component {
 				console.error("Error: ", err);
 			})
 	};
-
-
 
 	render(){
 		return (
