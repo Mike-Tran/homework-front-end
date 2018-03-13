@@ -11,10 +11,12 @@ class Home extends Component {
 		searchTerm: 'Blade Runner',
 		offSet: 0,
 		gifs: [],
+		sortOrder: 'oldest'
+
 	};
 
 	componentDidMount() {
-		window.addEventListener('scroll', _.throttle(this.onScroll, 16), false);
+		window.addEventListener('scroll', _.throttle(this.__onScroll, 16), false);
 		getGifRequest(this.state.searchTerm, this.state.offSet)
 			.then((firstGifs) => {
 				this.setState({
@@ -28,25 +30,27 @@ class Home extends Component {
 	}
 
 	componentWillUnmount() {
-		window.removeEventListener('scroll', _.throttle(this.onScroll(), 16), false);
+		window.removeEventListener('scroll', _.throttle(this.__onScroll(), 16), false);
 	}
 
 	/**
-	 *
+	 * We calculate if the user has hit the 'bottom' of the page.
+	 * @private
 	 */
-	onScroll = () => {
+	__onScroll = () => {
 		if ((window.innerHeight + window.scrollY) >= (document.body.offsetHeight - 500) &&
 			this.state.gifs.length &&
 			!this.state.isLoading
 		) {
-			this.onPaginatedSearch();
+			this._onPaginatedSearch();
 		}
 	};
 
 	/**
-	 *
+	 * When a user hits the bottom of the page, it makes a new call for the next set of gifs with the same search query.\
+	 * @private
 	 */
-	onPaginatedSearch = () => {
+	_onPaginatedSearch = () => {
 		this.setState((prevState) => {
 			return {
 				offSet: prevState.offSet + 25,
@@ -67,7 +71,9 @@ class Home extends Component {
 	};
 
 	/**
-	 *
+	 * Makes a new search based off the query.
+	 * @param {string} query
+	 * @export
 	 */
 	searchForGifTerm = (query) => {
 		this.setState({
@@ -75,7 +81,6 @@ class Home extends Component {
 			offSet: 0,
 			isLoading: true,
 		});
-
 		getGifRequest(query, this.state.offSet)
 			.then((newGifs) => {
 				this.setState({
@@ -88,11 +93,22 @@ class Home extends Component {
 			})
 	};
 
+	/**
+	 * Changes the state's sort order.
+	 * @param {string} sortOrder
+	 * @export
+	 */
+	handlesSortOrder = (sortOrder) => {
+		this.setState({sortOrder});
+	};
+
 	render(){
 		return (
 			<div className='home'>
-				<SearchBar searchForGifTerm={this.searchForGifTerm}/>
-				<GridBodyContainer gifs={this.state.gifs}/>
+				<SearchBar searchForGifTerm={this.searchForGifTerm}
+									 changeSortOrder={this.handlesSortOrder}/>
+				<GridBodyContainer gifs={this.state.gifs}
+													 sortOrder={this.state.sortOrder}/>
 				{this.state.isLoading && <LinearProgress/>}
 			</div>
 		)

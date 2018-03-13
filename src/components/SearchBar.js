@@ -1,10 +1,12 @@
-import React, {Component } from 'react';
+import React, { Component } from 'react';
 import {AppBar, TextField, Toolbar, Typography} from "material-ui";
 import _ from 'underscore';
+import SortSelect from "./SortSelect";
 
 class SearchBar extends Component {
 	state = {
 		searchField: '',
+		sortBy: 'oldest'
 	};
 
 	/**
@@ -17,10 +19,23 @@ class SearchBar extends Component {
 		_.throttle(this.props.searchForGifTerm(cleanString), 100);
 	};
 
+	/**
+	 * Handles the gif sort order.
+	 * @param {!Event} event
+	 */
+	handleSortOrder = (event) => {
+		if(this.state.sortBy !== event.target.value){
+			this.setState({sortBy:  event.target.value});
+			this.props.changeSortOrder(event.target.value);
+		}
+	};
+
 	render(){
 		return (
 			<AppBar position="sticky">
 				<Toolbar>
+					<SortSelect sortByValue={this.state.sortBy}
+											handleSortOrder={this.handleSortOrder}/>
 					<Typography variant="title" color="inherit" className='toolBar'>
 						Gif Explorer
 					</Typography>

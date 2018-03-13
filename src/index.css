@@ -18,6 +18,10 @@ label.MuiFormLabel-root-72.MuiInputLabel-root-66.MuiInputLabel-formControl-67.Mu
   height: auto;
 }
 
+.sortFormControl {
+  min-width: 120px,
+}
+
 /*Grid List*/
 .gridList {
   width: 500px;
