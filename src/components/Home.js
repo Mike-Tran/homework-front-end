@@ -5,10 +5,12 @@ import GridBodyContainer from "./GridBodyContainer";
 class Home extends Component {
 
 	render(){
-		<div>
-			<SearchBar/>
-			<GridBodyContainer/>
-		</div>
+		return (
+			<div className='home'>
+				<SearchBar/>
+				<GridBodyContainer/>
+			</div>
+		)
 	}
 
 }

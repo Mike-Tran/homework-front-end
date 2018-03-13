@@ -3,3 +3,12 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+/*Search Bar*/
+.toolBar {
+  flex: 1;
+}
+
+label.MuiFormLabel-root-72.MuiInputLabel-root-66.MuiInputLabel-formControl-67.MuiInputLabel-animated-70 {
+  color: white;
+}
