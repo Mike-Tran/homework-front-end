@@ -1,3 +1,6 @@
+# Preview of Application
+[Imgur](https://i.imgur.com/CzZ5cXG.gifv)
+
 # Eaze Front End Homework
 
 Front End coding challenge.
@@ -22,9 +25,7 @@ We strongly encourage you to pick a couple of optional improvements. The followi
 - Let the user upload a GIF.
 - Add some unit tests.
 
-Preview of Application
 
-![Preview_Gif Search](https://i.imgur.com/CzZ5cXG.gif)
 
 # Features:
    * Grid list view of GIFs.
