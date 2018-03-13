@@ -12,3 +12,28 @@ body {
 label.MuiFormLabel-root-72.MuiInputLabel-root-66.MuiInputLabel-formControl-67.MuiInputLabel-animated-70 {
   color: white;
 }
+
+.searchField {
+  max-width: 100%;
+  height: auto;
+}
+
+/*Grid List*/
+.gridList {
+  width: 500px;
+  height: 450px;
+  transform: translateZ(0);
+}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  overflow: hidden;
+}
+
+/**/
+.cover {
+  max-width: 100%;
+  height: auto;
+}

@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import SearchBar from "./SearchBar";
 import GridBodyContainer from "./GridBodyContainer";
 import {getGifRequest} from "../util/api";
+import {LinearProgress} from "material-ui";
 
 class Home extends Component {
 	state = {
@@ -52,7 +53,8 @@ class Home extends Component {
 		return (
 			<div className='home'>
 				<SearchBar searchForGifTerm={this.searchForGifTerm}/>
-				<GridBodyContainer/>
+				<GridBodyContainer gifs={this.state.gifs}/>
+				{this.state.isLoading && <LinearProgress/>}
 			</div>
 		)
 	}

@@ -4,11 +4,11 @@ import GridItem from "./GridItem";
 class GridBodyContainer extends Component {
 	render(){
 		return (
-			<div>Inside of Grid Body Container
-				<div>
-					<GridItem/>
-					<GridItem/>
-				</div>
+			<div className='gridBody'>
+				{this.props.gifs.length >  0 && this.props.gifs.map((gif) => (
+					<GridItem gif={gif} key={gif.id}/>
+				))
+				}
 			</div>
 		)
 	}
