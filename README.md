@@ -22,24 +22,55 @@ We strongly encourage you to pick a couple of optional improvements. The followi
 - Let the user upload a GIF.
 - Add some unit tests.
 
+Preview of Application
 
-### Project Structure
+![Preview_Gif Search](https://i.imgur.com/CzZ5cXG.gif)
 
-We've included all of the boilerplate to get started with this project using [create-react-app](https://github.com/facebookincubator/create-react-app), feel free to use this structure if you'd like. If you'd prefer to use something other than React or you'd prefer a different project structure, go ahead and make any changes you'd like.
+# Features:
+   * Grid list view of GIFs.
+   * Sorting of gif posts.
+   * Search gif posts.
+   * Click to expand and find more info on gif.
+   * Infinite load.
 
-### Evaluation
+This repository includes the code for the backend API Server that you'll use to develop and interact with the front-end portion of the project.
 
-The app should run on any computer by running `npm install` and `npm start`.
-We’ll evaluate the exercise by looking at the end result and the code.
+## Start Developing
 
-### Coding at Eaze
+To get started developing right away:
 
-At [Eaze](https://www.eaze.com) we strive for writing simple, maintainable and clean code. 
+* Install and start the API server
+    - `cd api-server`
+    - `npm install`
+    - `node server`
+* In another terminal window, use Create React App to scaffold out the front-end
+    - `create-react-app frontend`
+    - `cd frontend`
+    - `npm start`
 
-We prefer simplicity over complexity.
+## API Server
 
-We comment our code and commit often.
+Information about the API server and how to use it can be found in its [README file](api-server/README.md).
 
-We love our users and we really care about providing a good user experience and pleasant UI.
+## License
+The MIT License (MIT)
 
-We encourage out of the box thinking and we love to be impressed!
+Copyright (c) 2016 MichaelHuyTran@gmail.com
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
