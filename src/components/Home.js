@@ -12,7 +12,6 @@ class Home extends Component {
 		offSet: 0,
 		gifs: [],
 		sortOrder: 'oldest'
-
 	};
 
 	componentDidMount() {
@@ -47,7 +46,7 @@ class Home extends Component {
 	};
 
 	/**
-	 * When a user hits the bottom of the page, it makes a new call for the next set of gifs with the same search query.\
+	 * When a user hits the bottom of the page, it makes a new call for the next set of gifs with the same search query.
 	 * @private
 	 */
 	_onPaginatedSearch = () => {

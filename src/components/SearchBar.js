@@ -1,7 +1,9 @@
+import _ from 'underscore';
 import React, { Component } from 'react';
 import {AppBar, TextField, Toolbar, Typography} from "material-ui";
-import _ from 'underscore';
+import PropTypes from 'prop-types';
 import SortSelect from "./SortSelect";
+import blueGrey from 'material-ui/colors/blueGrey';
 
 class SearchBar extends Component {
 	state = {
@@ -46,7 +48,8 @@ class SearchBar extends Component {
 						onChange={this.handleTextChange}
 						margin="normal"
 						type='text'
-						color="inherit"/>
+						InputLabelProps={{color: blueGrey[50]}}
+					/>
 				</Toolbar>
 			</AppBar>
 		)
@@ -54,3 +57,8 @@ class SearchBar extends Component {
 }
 
 export default SearchBar
+
+SearchBar.propTypes = {
+	changeSortOrder: PropTypes.func.isRequired,
+	searchForGifTerm: PropTypes.func.isRequired,
+};

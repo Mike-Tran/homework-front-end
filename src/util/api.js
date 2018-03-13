@@ -1,7 +1,8 @@
 import fetch from 'cross-fetch';
 
+//TODO(michaelhuy): Abstract into Redux Action Creator.
 /**
- *
+ * Get API call to retrieve gifs with search term and an offset.
  * @param {string} searchTerm
  * @param {number} offSet
  * @returns {Promise<Response>}
@@ -20,4 +21,3 @@ export function getGifRequest (searchTerm, offSet) {
 		return res.json();
 	});
 }
-
