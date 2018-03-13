@@ -3,3 +3,36 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+/*Search Bar*/
+.toolBar {
+  flex: 1;
+}
+
+.searchField {
+  max-width: 100%;
+  height: auto;
+}
+
+.sortFormControl {
+  min-width: 120px,
+}
+
+/*Grid List*/
+.gridList {
+  width: 500px;
+  height: 450px;
+  transform: translateZ(0);
+}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  overflow: hidden;
+}
+
+.gifDetails {
+  display: flex;
+  flex-direction: column;
+}
